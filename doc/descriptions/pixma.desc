@@ -11,7 +11,7 @@
 ; See doc/descriptions.txt for details.
 
 :backend "pixma"                  ; name of backend
-:version "0.17.48"                ; version of backend (or "unmaintained")
+:version "0.17.51"                ; version of backend (or "unmaintained")
 :manpage "sane-pixma"             ; name of manpage (if it exists)
 ;:comment "Devices marked as experimantal are disabled by default. See the manual page for how to enable them."
 
@@ -833,6 +833,12 @@
 :status :untested
 :comment "Testers needed!"
 
+:model "PIXMA TS6100 Series"
+:interface "USB WiFi"
+:usbid "0x04a9" "0x1822"
+:status :untested
+:comment "Testers needed!"
+
 :model "PIXMA TS5000 Series"
 :interface "USB WiFi"
 :usbid "0x04a9" "0x1802"
@@ -856,6 +862,12 @@
 :usbid "0x04a9" "0x2775"
 :status :complete
 :comment "All resolutions supported (up to 600DPI)"
+
+:model "imageCLASS D570"
+:interface "USB"
+:usbid "0x04a9" "0x27e8"
+:status :untested
+:comment "Testers needed!"
 
 :model "i-SENSYS MF210 Series"
 :interface "USB Ethernet WiFi"
@@ -881,6 +893,12 @@
 :status :good
 :comment "Flatbed and ADF scan. All resolutions supported (up to 600DPI, ADF up to 300DPI). 216mm image width buggy, restricted to 215mm."
 
+:model "i-SENSYS MF410 Series"
+:interface "USB Ethernet WiFi"
+:usbid "0x04a9" "0x27c0"
+:status :untested
+:comment "Testers needed!"
+
 :model "i-SENSYS MF620 Series"
 :interface "USB Ethernet WiFi"
 :usbid "0x04a9" "0x27b4"
@@ -896,6 +914,12 @@
 :model "i-SENSYS MF730 Series"
 :interface "USB Ethernet WiFi"
 :usbid "0x04a9" "0x27e4"
+:status :untested
+:comment "Testers needed!"
+
+:model "i-SENSYS MF731/733"
+:interface "USB Ethernet WiFi"
+:usbid "0x04a9" "0x27e5"
 :status :untested
 :comment "Testers needed!"
 
@@ -1194,10 +1218,10 @@
 :comment "Flatbed works, All resolutions supported (up to 1200DPI), ADF does not work"
 
 :model "MAXIFY MB5300 Series"
-:interface "USB"
+:interface "USB Ethernet"
 :usbid "0x04a9" "0x1777"
-:status :untested
-:comment "Testers needed!"
+:status :good
+:comment "1200dpi scans do not work"
 
 :model "CanoScan 8800F"
 :interface "USB"
