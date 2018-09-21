@@ -172,7 +172,7 @@ be_convenience_libs = libabaton.la libagfafocus.la \
     libtamarack.la libtest.la libteco1.la \
     libteco2.la libteco3.la libu12.la libumax.la \
     libumax1220u.la libumax_pp.la libv4l.la \
-    libxerox_mfp.la
+    libxerox_mfp.la libricoh_aficio.la
 
 # Each stand alone backend thats possible to be built should be listed
 # here.  There are the libraries that are installed under $(libdir)/sane.
@@ -206,7 +206,7 @@ be_dlopen_libs = libsane-abaton.la libsane-agfafocus.la \
     libsane-tamarack.la libsane-test.la libsane-teco1.la \
     libsane-teco2.la libsane-teco3.la libsane-u12.la libsane-umax.la \
     libsane-umax1220u.la libsane-umax_pp.la libsane-v4l.la \
-    libsane-xerox_mfp.la
+    libsane-xerox_mfp.la libsane-ricoh_aficio.la
 
 EXTRA_LTLIBRARIES = $(be_convenience_libs) $(be_dlopen_libs)
 
@@ -884,6 +884,14 @@ libsane_ricoh_la_LIBADD = $(COMMON_LIBS) libricoh.la ../sanei/sanei_init_debug.l
 EXTRA_DIST += ricoh.conf.in
 # TODO: Why are these distributed but not compiled?
 EXTRA_DIST += ricoh-scsi.c
+
+libricoh_aficio_la_SOURCES = ricoh_aficio.c ricoh_buffer.c
+libricoh_aficio_la_CPPFLAGS = $(AM_CPPFLAGS) -DBACKEND_NAME=ricoh_aficio
+
+nodist_libsane_ricoh_aficio_la_SOURCES = ricoh_aficio-s.c
+libsane_ricoh_aficio_la_CPPFLAGS = $(AM_CPPFLAGS) -DBACKEND_NAME=ricoh_aficio
+libsane_ricoh_aficio_la_LDFLAGS = $(DIST_SANELIBS_LDFLAGS)
+libsane_ricoh_aficio_la_LIBADD = $(COMMON_LIBS) libricoh_aficio.la $(USB_LIBS) ../sanei/sanei_init_debug.lo ../sanei/sanei_constrain_value.lo ../sanei/sanei_usb.lo ../sanei/sanei_config.lo sane_strstatus.lo
 
 librts8891_la_SOURCES = rts8891.c rts8891.h rts88xx_lib.c rts88xx_lib.h
 librts8891_la_CPPFLAGS = $(AM_CPPFLAGS) -DBACKEND_NAME=rts8891
